@@ -12,12 +12,12 @@ final class PhotosViewController: UIViewController {
     
     
     //MARK: Property
-    private let networkService = NetworkService()
+    private let networkDataFetcher = NetworkDataFetcher()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.request(searchText: "Cat", page: 1) { (data, error) in
-            print(data)
+        networkDataFetcher.fetchImages(searchText: "Cat", page: 1) { (models) in
+            print(models)
         }
     }
 
