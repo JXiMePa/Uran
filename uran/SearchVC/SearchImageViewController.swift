@@ -31,6 +31,7 @@ final class SearchImageViewController: UIViewController {
     //MARK: Func
     private func setupUI() {
         imageCollectionView.register(UINib(nibName: SearchImageCell.identifier, bundle: nil), forCellWithReuseIdentifier: SearchImageCell.identifier)
+        imageCollectionView.allowsMultipleSelection = true
     }
     
     private func setupNavigationBar() {
@@ -72,7 +73,8 @@ extension SearchImageViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = imageCollectionView.dequeueReusableCell(withReuseIdentifier: SearchImageCell.identifier, for: indexPath) as! SearchImageCell
-        
+        cell.indexPath = indexPath
+        cell.delegate = self
         return cell
     }
 
@@ -88,6 +90,7 @@ extension SearchImageViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK: UISearchBarDelegate
 extension SearchImageViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard searchText.count > 2 else {
@@ -95,4 +98,13 @@ extension SearchImageViewController: UISearchBarDelegate {
         }
         print(searchText)
     }
+}
+
+//MARK: SearchImageCellProtocol
+extension SearchImageViewController: SearchImageCellProtocol {
+    func deleteDidTap(_ indexPath: IndexPath) {
+        print(indexPath)
+    }
+    
+    
 }

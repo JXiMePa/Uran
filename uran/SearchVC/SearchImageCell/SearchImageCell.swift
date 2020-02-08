@@ -8,11 +8,37 @@
 
 import UIKit
 
-class SearchImageCell: UICollectionViewCell {
+protocol SearchImageCellProtocol: class {
+    func deleteDidTap(_ indexPath: IndexPath)
+}
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+final class SearchImageCell: UICollectionViewCell {
+    
+    //MARK: IBOutlet
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var selectHighlightedView: UIView!
+    
+    //MARK: Property
+    weak var delegate: SearchImageCellProtocol?
+    var indexPath: IndexPath?
+    
+    override var isSelected: Bool {
+        didSet {
+            prepareSelectImage()
+        }
     }
-
+    
+    //MARK: Func
+    private func prepareSelectImage() {
+        selectHighlightedView.isHidden = isSelected ? false : true
+    }
+    
+    //MARK: Action
+    @IBAction func deleteButtonAction(_ sender: UIButton) {
+        if let indexPath = self.indexPath {
+            delegate?.deleteDidTap(indexPath)
+        }
+    }
+    
 }

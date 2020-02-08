@@ -19,10 +19,10 @@ class BlueButton: UIButton {
     //MARK: Func
     private func defaultSetup() {
         setTitleColor(UIColor.black, for: .normal)
-        backgroundColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
+        backgroundColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
         cornerRadius = 3.0
         shadowRadius = 10.0
-        shadowColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 0.5)
+        shadowColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 0.5)
         shadowOpacity = 1
         shadowOffset = CGSize(width: 0, height: 8)
         self.titleLabel?.font =  UIFont(name: "Avenir-Black", size: 24)
