@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Image View Controller-->
+        <scene sceneID="uJ1-n1-kBE">
+            <objects>
+                <viewController restorationIdentifier="SearchImageViewController" storyboardIdentifier="SearchImageViewController" id="B1m-B8-Jq4" customClass="SearchImageViewController" customModule="uran" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fg6-up-Xav">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hus-6q-q23" customClass="BlueButton" customModule="uran" customModuleProvider="target">
+                                <rect key="frame" x="50" y="782" width="314" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HXJ-YA-v7o"/>
+                                    <constraint firstAttribute="height" constant="50" id="sJX-LU-jLb"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonAction:" destination="B1m-B8-Jq4" eventType="touchUpInside" id="p3z-W2-cmk"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FIR-Rj-xpN">
+                                <rect key="frame" x="0.0" y="88" width="414" height="654"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="Jwe-Xr-m6L">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="B1m-B8-Jq4" id="O1h-xu-LN5"/>
+                                    <outlet property="delegate" destination="B1m-B8-Jq4" id="x1c-ku-sPm"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FIR-Rj-xpN" firstAttribute="trailing" secondItem="cBC-WG-Za2" secondAttribute="trailing" id="Qy3-zY-QOz"/>
+                            <constraint firstItem="Hus-6q-q23" firstAttribute="centerX" secondItem="cBC-WG-Za2" secondAttribute="centerX" id="YA3-02-vBR"/>
+                            <constraint firstItem="Hus-6q-q23" firstAttribute="top" secondItem="FIR-Rj-xpN" secondAttribute="bottom" constant="40" id="YKp-SD-f2E"/>
+                            <constraint firstItem="Hus-6q-q23" firstAttribute="leading" secondItem="fg6-up-Xav" secondAttribute="leading" constant="50" id="Zyn-os-73R"/>
+                            <constraint firstItem="FIR-Rj-xpN" firstAttribute="top" secondItem="cBC-WG-Za2" secondAttribute="top" id="aO5-3n-tSa"/>
+                            <constraint firstItem="cBC-WG-Za2" firstAttribute="bottom" secondItem="Hus-6q-q23" secondAttribute="bottom" constant="30" id="glN-YB-kCR"/>
+                            <constraint firstItem="FIR-Rj-xpN" firstAttribute="leading" secondItem="cBC-WG-Za2" secondAttribute="leading" id="p7Q-gr-SJK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cBC-WG-Za2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="psz-fK-LgJ"/>
+                    <connections>
+                        <outlet property="doneButton" destination="Hus-6q-q23" id="TbQ-nC-Roi"/>
+                        <outlet property="imageCollectionView" destination="FIR-Rj-xpN" id="eft-9w-Zqc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O2S-tO-ff6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="718.84057971014499" y="152.67857142857142"/>
+        </scene>
+        <!--Search Navigation View Controller-->
+        <scene sceneID="47y-BK-IZM">
+            <objects>
+                <navigationController restorationIdentifier="SearchNavigationViewController" storyboardIdentifier="SearchNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="Jjo-TJ-mtg" customClass="SearchNavigationViewController" customModule="uran" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f1n-Q4-kKd">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="B1m-B8-Jq4" kind="relationship" relationship="rootViewController" id="86Q-7g-DK3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Kt-q2-aBE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="37.681159420289859" y="153.34821428571428"/>
+        </scene>
+    </scenes>
+</document>
