@@ -18,9 +18,10 @@ struct UnsplashPhoto: Decodable {
     let height: Int
     let urls: [ImageSize.RawValue: String]
     
-    enum ImageSize: String {
-        case raw, full, regular, small, thumb
-    }
+}
+
+enum ImageSize: String {
+    case raw, full, regular, small, thumb
 }
 
 

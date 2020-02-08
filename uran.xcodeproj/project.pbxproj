@@ -136,8 +136,8 @@
 		6B4C850823EF30CF005A7DCC /* SearchVC */ = {
 			isa = PBXGroup;
 			children = (
-				6B4C850F23EF36F5005A7DCC /* SearchImageCell */,
 				6B4C850623EF30A8005A7DCC /* SearchNavigationViewController.swift */,
+				6B4C850F23EF36F5005A7DCC /* SearchImageCell */,
 				6B4C850923EF3106005A7DCC /* SearchImageViewController.swift */,
 			);
 			path = SearchVC;

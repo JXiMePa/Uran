@@ -16,7 +16,6 @@ final class PhotosViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     
     //MARK: Property
-    private let networkDataFetcher = NetworkDataFetcher()
     private let imageRow: CGFloat = 3.0
     private let imageInRow: CGFloat = 3.0
     private let insert: CGFloat = 3.0
@@ -26,10 +25,7 @@ final class PhotosViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         setupUI()
-        
-//        networkDataFetcher.fetchImages(searchText: "Cat", page: 1) { (models) in
-//            print(models)
-//        }
+
     }
     
     //MARK: Func

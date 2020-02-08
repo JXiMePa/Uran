@@ -16,9 +16,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="124" height="119"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="qFO-8d-YO3">
+                        <rect key="frame" x="43.5" y="41" width="37" height="37"/>
+                    </activityIndicatorView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D0E-TK-yfX">
                         <rect key="frame" x="0.0" y="0.0" width="124" height="119"/>
-                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSj-vl-Lrr">
                         <rect key="frame" x="0.0" y="0.0" width="124" height="119"/>
@@ -61,6 +63,7 @@
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="4gE-1d-4JS" secondAttribute="trailing" constant="5" id="2mG-3w-QOm"/>
+                <constraint firstItem="qFO-8d-YO3" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="4f5-n4-nTh"/>
                 <constraint firstAttribute="bottom" secondItem="cSj-vl-Lrr" secondAttribute="bottom" id="8rh-if-1qL"/>
                 <constraint firstAttribute="bottom" secondItem="D0E-TK-yfX" secondAttribute="bottom" id="CJ2-9e-0Ga"/>
                 <constraint firstItem="4gE-1d-4JS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Ntc-sN-yvk"/>
@@ -68,6 +71,7 @@
                 <constraint firstAttribute="trailing" secondItem="D0E-TK-yfX" secondAttribute="trailing" id="R3m-UP-gU7"/>
                 <constraint firstItem="cSj-vl-Lrr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="RAg-o1-NqE"/>
                 <constraint firstItem="D0E-TK-yfX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="WLL-x3-etv"/>
+                <constraint firstItem="qFO-8d-YO3" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="h0w-RL-X3C"/>
                 <constraint firstItem="D0E-TK-yfX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kF9-sq-KT5"/>
                 <constraint firstItem="cSj-vl-Lrr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="t1g-Zc-FSD"/>
             </constraints>
@@ -77,6 +81,7 @@
                 <outlet property="deleteButton" destination="4gE-1d-4JS" id="GK1-zt-5rt"/>
                 <outlet property="photoImageView" destination="D0E-TK-yfX" id="m6T-05-3vX"/>
                 <outlet property="selectHighlightedView" destination="cSj-vl-Lrr" id="LjB-fW-AQC"/>
+                <outlet property="spiner" destination="qFO-8d-YO3" id="OGZ-wE-yWv"/>
             </connections>
             <point key="canvasLocation" x="76.811594202898561" y="153.01339285714286"/>
         </collectionViewCell>
