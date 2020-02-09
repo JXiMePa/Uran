@@ -17,6 +17,8 @@
 		6B4C850A23EF3106005A7DCC /* SearchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4C850923EF3106005A7DCC /* SearchImageViewController.swift */; };
 		6B4C850D23EF36F1005A7DCC /* SearchImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4C850B23EF36F1005A7DCC /* SearchImageCell.swift */; };
 		6B4C850E23EF36F1005A7DCC /* SearchImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B4C850C23EF36F1005A7DCC /* SearchImageCell.xib */; };
+		6B4C851123EF8330005A7DCC /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4C851023EF8330005A7DCC /* Reachability.swift */; };
+		6B4C851423EF8B45005A7DCC /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4C851323EF8B45005A7DCC /* RootViewController.swift */; };
 		6B57DBBA23EF0F7200D9F31B /* Pods_uran.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4F979DFF2E98684E57F355 /* Pods_uran.framework */; };
 		6B57DBBB23EF0F7200D9F31B /* Pods_uran.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC4F979DFF2E98684E57F355 /* Pods_uran.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B57DBBE23EF13A800D9F31B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B57DBBD23EF13A800D9F31B /* NetworkService.swift */; };
@@ -58,6 +60,8 @@
 		6B4C850923EF3106005A7DCC /* SearchImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageViewController.swift; sourceTree = "<group>"; };
 		6B4C850B23EF36F1005A7DCC /* SearchImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageCell.swift; sourceTree = "<group>"; };
 		6B4C850C23EF36F1005A7DCC /* SearchImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchImageCell.xib; sourceTree = "<group>"; };
+		6B4C851023EF8330005A7DCC /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		6B4C851323EF8B45005A7DCC /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		6B57DBBD23EF13A800D9F31B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		6B68218E23EF1C180073D92B /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		6B68219023EF1C880073D92B /* SearchResultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsModel.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			children = (
 				6B27C3C823EF0AE800C7EA95 /* AppDelegate.swift */,
 				6B27C3CA23EF0AE800C7EA95 /* SceneDelegate.swift */,
+				6B4C851323EF8B45005A7DCC /* RootViewController.swift */,
 				6BA5B45123EF24DF0003CD5F /* Extensions */,
 				6B68219223EF1C990073D92B /* Model */,
 				6B57DBBF23EF16FB00D9F31B /* ApiService */,
@@ -125,6 +130,7 @@
 				6BE144B623EF2CA5005790E0 /* ZoomPhotoVC */,
 				6B4C850823EF30CF005A7DCC /* SearchVC */,
 				6B27C3CE23EF0AE800C7EA95 /* Main.storyboard */,
+				6B4C851223EF8AFE005A7DCC /* Helpers */,
 				6BE144B223EF2B40005790E0 /* SearchImages.storyboard */,
 				6B27C3D123EF0AED00C7EA95 /* Assets.xcassets */,
 				6B27C3D323EF0AED00C7EA95 /* LaunchScreen.storyboard */,
@@ -150,6 +156,14 @@
 				6B4C850C23EF36F1005A7DCC /* SearchImageCell.xib */,
 			);
 			path = SearchImageCell;
+			sourceTree = "<group>";
+		};
+		6B4C851223EF8AFE005A7DCC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6B4C851023EF8330005A7DCC /* Reachability.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		6B57DBBF23EF16FB00D9F31B /* ApiService */ = {
@@ -343,7 +357,9 @@
 				6BA5B45023EF24DA0003CD5F /* UIView.swift in Sources */,
 				6BA5B44C23EF24150003CD5F /* BlueButton.swift in Sources */,
 				6BA5B45423EF26530003CD5F /* ImageCell.swift in Sources */,
+				6B4C851123EF8330005A7DCC /* Reachability.swift in Sources */,
 				6B27C3CD23EF0AE800C7EA95 /* PhotosViewController.swift in Sources */,
+				6B4C851423EF8B45005A7DCC /* RootViewController.swift in Sources */,
 				6BE144B123EF281B005790E0 /* UIViewController.swift in Sources */,
 				6B27C3C923EF0AE800C7EA95 /* AppDelegate.swift in Sources */,
 				6BE144B523EF2C9F005790E0 /* ZoomPhotoViewController.swift in Sources */,

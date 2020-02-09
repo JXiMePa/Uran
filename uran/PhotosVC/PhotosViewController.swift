@@ -9,36 +9,29 @@
 import UIKit
 import DeckTransition
 
-final class PhotosViewController: UIViewController {
+final class PhotosViewController: RootViewController {
     
     //MARK: IBOutlet
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var placeholderLabel: UILabel!
     
     //MARK: Property
     private let imageRow: CGFloat = 3.0
     private let imageInRow: CGFloat = 3.0
     private let insert: CGFloat = 3.0
+    private var photos = [UnsplashPhoto]()
 
     //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         setupUI()
-
     }
     
     //MARK: Func
    private func setupUI() {
     imageCollectionView.register(UINib(nibName: ImageCell.identifier, bundle: nil), forCellWithReuseIdentifier: ImageCell.identifier)
     }
-    private func setupNavigationBar() {
-           let titleLabel = UILabel()
-           titleLabel.text = "PHOTOS"
-           titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .medium)
-           titleLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-           navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: titleLabel)
-       }
     
     //MARK: Actions
     @IBAction func searchButtonAction(_ sender: UIButton) {
@@ -47,6 +40,7 @@ final class PhotosViewController: UIViewController {
         searchNavVC.transitioningDelegate = transitionDelegate
         searchNavVC.modalPresentationStyle = .custom
         if let searchVC = searchNavVC.viewControllers.first as? SearchImageViewController {
+            searchVC.delegate = self
             present(searchNavVC, animated: true, completion: nil)
         }
         
@@ -57,7 +51,8 @@ final class PhotosViewController: UIViewController {
 //MARK: UICollectionViewDelegate
 extension PhotosViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let zoomImageVC = ZoomPhotoViewController.instance() 
+        let zoomImageVC = ZoomPhotoViewController.instance()
+        zoomImageVC.photo = photos[indexPath.item]
         navigationController?.pushViewController(zoomImageVC, animated: true)
     }
 }
@@ -65,12 +60,13 @@ extension PhotosViewController: UICollectionViewDelegate {
 //MARK: UICollectionViewDataSource
 extension PhotosViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        placeholderLabel.isHidden = photos.count > 0
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = imageCollectionView.dequeueReusableCell(withReuseIdentifier: ImageCell.identifier, for: indexPath) as! ImageCell
-        
+        cell.photo = photos[indexPath.item]
         return cell
     }
 
@@ -84,4 +80,14 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     
         return CGSize(width: width, height: height)
     }
+}
+
+//MARK: SearchImageProtocol
+extension PhotosViewController: SearchImageProtocol {
+    func photoIsSelected(_ photo: [UnsplashPhoto]) {
+        self.photos += photo
+        self.imageCollectionView.reloadData()
+    }
+    
+    
 }

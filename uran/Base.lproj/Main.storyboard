@@ -40,22 +40,32 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="3t2-bx-JAD"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No photos selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw9-Ex-b8y">
+                                <rect key="frame" x="26" y="433.5" width="362" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Svp-6Y-V9L" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="10z-KA-IeI"/>
                             <constraint firstItem="Svp-6Y-V9L" firstAttribute="top" secondItem="22r-2U-Y6H" secondAttribute="bottom" constant="40" id="7hi-yV-EUx"/>
+                            <constraint firstItem="jw9-Ex-b8y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="8Kq-rn-jCJ"/>
                             <constraint firstItem="22r-2U-Y6H" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="EQG-ia-l76"/>
                             <constraint firstItem="Svp-6Y-V9L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="PKg-L1-ahl"/>
+                            <constraint firstItem="jw9-Ex-b8y" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="a4V-QT-ZIY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Svp-6Y-V9L" secondAttribute="bottom" constant="30" id="dyb-mP-ggS"/>
                             <constraint firstItem="22r-2U-Y6H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jm1-4D-ezf"/>
                             <constraint firstItem="22r-2U-Y6H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="obf-ZB-e7q"/>
+                            <constraint firstItem="jw9-Ex-b8y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="udy-hh-JHQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jad-xq-7OZ"/>
                     <connections>
                         <outlet property="imageCollectionView" destination="22r-2U-Y6H" id="ZYS-aZ-ywH"/>
+                        <outlet property="placeholderLabel" destination="jw9-Ex-b8y" id="7zk-qD-owb"/>
                         <outlet property="searchButton" destination="Svp-6Y-V9L" id="khJ-VJ-yT8"/>
                     </connections>
                 </viewController>
@@ -74,9 +84,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="RsK-fZ-Ogy">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HcF-f1-qPq">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HcF-f1-qPq">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -91,7 +100,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="HcF-f1-qPq" firstAttribute="height" secondItem="Maz-wn-cPx" secondAttribute="height" priority="750" id="MIA-C2-PVC"/>
+                            <constraint firstItem="HcF-f1-qPq" firstAttribute="height" secondItem="Maz-wn-cPx" secondAttribute="height" id="MIA-C2-PVC"/>
                             <constraint firstItem="HcF-f1-qPq" firstAttribute="width" secondItem="mbp-YW-ljK" secondAttribute="width" id="SfE-FP-8g8"/>
                             <constraint firstItem="RsK-fZ-Ogy" firstAttribute="top" secondItem="bCG-06-HHC" secondAttribute="top" id="fSz-Ke-kKh"/>
                             <constraint firstItem="RsK-fZ-Ogy" firstAttribute="leading" secondItem="bCG-06-HHC" secondAttribute="leading" id="qAP-pS-aw5"/>
@@ -102,6 +111,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundScrollView" destination="RsK-fZ-Ogy" id="1SE-we-WPd"/>
+                        <outlet property="photoImageView" destination="HcF-f1-qPq" id="fiK-Kd-Enc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dz5-V9-Sqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

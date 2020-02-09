@@ -7,9 +7,12 @@
 //
 
 import UIKit
-import JGProgressHUD
 
-final class SearchImageViewController: UIViewController {
+protocol SearchImageProtocol: class {
+    func photoIsSelected(_ photo: [UnsplashPhoto])
+}
+
+final class SearchImageViewController: RootViewController {
     
     //MARK: View
     private let searchController = UISearchController(searchResultsController: nil)
@@ -20,34 +23,27 @@ final class SearchImageViewController: UIViewController {
     private let imageRow: CGFloat = 3.0
     private let imageInRow: CGFloat = 3.0
     private let insert: CGFloat = 3.0
-    private let hud = JGProgressHUD(style: .dark)
     private var timer: Timer?
     private let networkDataFetcher = NetworkDataFetcher()
     private var page = 1
     private var searchText = ""
     private var photos = [UnsplashPhoto]()
+    private var selectedIndexPath = [IndexPath]()
+    weak var delegate: SearchImageProtocol?
     
     //MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         setupSearchBar()
         setupUI()
+        checkInternet()
     }
     
     //MARK: Func
     private func setupUI() {
+        self.titleLabel.text = "SEARCH PHOTO"
         imageCollectionView.register(UINib(nibName: SearchImageCell.identifier, bundle: nil), forCellWithReuseIdentifier: SearchImageCell.identifier)
         imageCollectionView.allowsMultipleSelection = true
-        hud.textLabel.text = "Loading"
-    }
-    
-    private func setupNavigationBar() {
-        let titleLabel = UILabel()
-        titleLabel.text = "SEARCH PHOTO"
-        titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .medium)
-        titleLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: titleLabel)
     }
     
     private func setupSearchBar() {
@@ -57,10 +53,19 @@ final class SearchImageViewController: UIViewController {
         searchController.searchBar.delegate = self
     }
     
+    private func checkInternet() {
+        if !Reachability.isConnectedToNetwork() {
+            self.showAlert(title: "Internet? 😓", msg: "Connection not Available!")
+        }
+    }
+    
     //MARK: Actions
     @IBAction func doneButtonAction(_ sender: BlueButton) {
-        
-        //
+        var selectedPhoto = [UnsplashPhoto]()
+        for indexPath in selectedIndexPath {
+            selectedPhoto.append(photos[indexPath.item])
+        }
+        delegate?.photoIsSelected(selectedPhoto)
         searchController.dismiss(animated: false, completion: nil)
         self.dismiss(animated: true, completion: nil)
         
@@ -71,6 +76,16 @@ final class SearchImageViewController: UIViewController {
 
 //MARK: UICollectionViewDelegate
 extension SearchImageViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndexPath.append(indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let index = selectedIndexPath.firstIndex(of: indexPath) {
+            selectedIndexPath.remove(at: index)
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == photos.count - 1 {
@@ -99,6 +114,9 @@ extension SearchImageViewController: UICollectionViewDataSource {
         cell.indexPath = indexPath
         cell.delegate = self
         cell.photo = photos[indexPath.item]
+        if let _ = selectedIndexPath.firstIndex(of: indexPath) {
+            cell.isSelected = true
+        }
         return cell
     }
     
@@ -142,6 +160,9 @@ extension SearchImageViewController: SearchImageCellProtocol {
     
     func deleteDidTap(_ indexPath: IndexPath) {
         photos.remove(at: indexPath.item)
+        if let index = selectedIndexPath.firstIndex(of: indexPath) {
+            selectedIndexPath.remove(at: index)
+        }
         imageCollectionView.reloadData()
     }
 }

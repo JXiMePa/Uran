@@ -27,6 +27,21 @@ extension UIViewController {
         let viewController = storyboard.instantiateViewController(self)
         return viewController
     }
+    
+    func showAlert(title: String, msg: String, customActions: [UIAlertAction] = []) {
+          DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
+              
+              if customActions.isEmpty {
+                  alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+              } else {
+                  for action in customActions {
+                      alert.addAction(action)
+                  }
+              }
+              self.present(alert, animated: true, completion: nil)
+          }
+      }
 }
 
 extension UIStoryboard {
