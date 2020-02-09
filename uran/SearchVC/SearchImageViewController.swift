@@ -68,10 +68,8 @@ final class SearchImageViewController: RootViewController {
         delegate?.photoIsSelected(selectedPhoto)
         searchController.dismiss(animated: false, completion: nil)
         self.dismiss(animated: true, completion: nil)
-        
     }
-    
-    
+
 }
 
 //MARK: UICollectionViewDelegate

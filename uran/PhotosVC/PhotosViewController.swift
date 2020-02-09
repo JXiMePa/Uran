@@ -43,9 +43,7 @@ final class PhotosViewController: RootViewController {
             searchVC.delegate = self
             present(searchNavVC, animated: true, completion: nil)
         }
-        
     }
-
 }
 
 //MARK: UICollectionViewDelegate
@@ -88,6 +86,4 @@ extension PhotosViewController: SearchImageProtocol {
         self.photos += photo
         self.imageCollectionView.reloadData()
     }
-    
-    
 }

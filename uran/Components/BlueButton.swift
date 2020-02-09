@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BlueButton: UIButton {
+final class BlueButton: UIButton {
 
     //MARK: Life Cycle
     override func awakeFromNib() {

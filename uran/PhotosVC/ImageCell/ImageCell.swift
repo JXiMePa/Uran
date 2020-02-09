@@ -21,6 +21,4 @@ final class ImageCell: UICollectionViewCell {
             }
         }
     }
-    
-
 }
