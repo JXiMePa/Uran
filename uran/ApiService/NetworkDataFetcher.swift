@@ -34,6 +34,5 @@ final class NetworkDataFetcher {
             print("Failed to decode JSON", jsonError)
             return nil
         }
-        
     }
 }

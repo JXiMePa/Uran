@@ -67,7 +67,6 @@ extension PhotosViewController: UICollectionViewDataSource {
         cell.photo = photos[indexPath.item]
         return cell
     }
-
 }
 
 //MARK: UICollectionViewDelegateFlowLayout

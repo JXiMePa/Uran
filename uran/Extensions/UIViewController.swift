@@ -15,12 +15,7 @@ extension NSObject {
     }
 }
 
-//MARK: UIViewController & UIStoryboard
-enum Storyboards: String {
-    case main = "Main"
-    case search = "SearchImages"
-}
-
+//MARK: UIViewController
 extension UIViewController {
     class func instance(_ storyboard: Storyboards = .main) -> Self {
         let storyboard = UIStoryboard(name: storyboard.rawValue, bundle: nil)
@@ -44,6 +39,7 @@ extension UIViewController {
       }
 }
 
+//MARK: UIStoryboard
 extension UIStoryboard {
     func instantiateViewController<T: UIViewController>(_ type: T.Type) -> T {
         let id = NSStringFromClass(T.self).components(separatedBy: ".").last!

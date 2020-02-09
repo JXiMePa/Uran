@@ -20,8 +20,7 @@ final class SearchImageViewController: RootViewController {
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
     //MARK: Property
-    private let imageRow: CGFloat = 3.0
-    private let imageInRow: CGFloat = 3.0
+    private let imageRow: CGFloat = 2.0
     private let insert: CGFloat = 3.0
     private var timer: Timer?
     private let networkDataFetcher = NetworkDataFetcher()
@@ -86,7 +85,7 @@ extension SearchImageViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == photos.count - 1 {
+        if indexPath.row == photos.count - 1 && page <= 9 {
             hud.show(in: self.view)
             networkDataFetcher.fetchImages(searchText: searchText, page: page + 1) { [weak self] (searchResult) in
                 guard let `self` = self else { return }
@@ -123,7 +122,7 @@ extension SearchImageViewController: UICollectionViewDataSource {
 //MARK: UICollectionViewDelegateFlowLayout
 extension SearchImageViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = (imageCollectionView.frame.width - insert * imageInRow) / imageInRow
+        let width: CGFloat = imageCollectionView.frame.width
         let height: CGFloat = imageCollectionView.frame.height / imageRow
         
         return CGSize(width: width, height: height)

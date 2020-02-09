@@ -16,7 +16,7 @@ final class ImageCell: UICollectionViewCell {
     //MARK: Property
     var photo: UnsplashPhoto? {
         didSet {
-            if let urlString = photo?.urls[ImageSize.regular.rawValue], let url = URL(string: urlString) {
+            if let urlString = photo?.urls[ImageSize.small.rawValue], let url = URL(string: urlString) {
                 photoImageView.sd_setImage(with: url, completed: nil)
             }
         }

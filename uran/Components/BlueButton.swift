@@ -18,7 +18,7 @@ final class BlueButton: UIButton {
     
     //MARK: Func
     private func defaultSetup() {
-        setTitleColor(UIColor.black, for: .normal)
+        setTitleColor(UIColor.white, for: .normal)
         backgroundColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
         cornerRadius = 3.0
         shadowRadius = 10.0

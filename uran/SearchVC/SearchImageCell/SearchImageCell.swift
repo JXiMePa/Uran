@@ -19,7 +19,7 @@ final class SearchImageCell: UICollectionViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var selectHighlightedView: UIView!
-    @IBOutlet weak var spiner: UIActivityIndicatorView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     //MARK: Property
     weak var delegate: SearchImageCellProtocol?
@@ -34,7 +34,7 @@ final class SearchImageCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        spiner.startAnimating()
+        spinner.startAnimating()
     }
     
     override var isSelected: Bool {
@@ -54,5 +54,4 @@ final class SearchImageCell: UICollectionViewCell {
             delegate?.deleteDidTap(indexPath)
         }
     }
-    
 }
